@@ -21,132 +21,111 @@ tags:
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
-created: '2025-06-10T00:00:00.000Z'
-modified: '2025-06-10'
-position: Consumer
-description: >-
-  Weve spent years perfecting products that make it effortless to access and
-  use data.PromptQL for AIAccurate AI by continuously learning the unique
-  context of your business. 
-maintainers:
-  - FN: Kin Lane
-    email: info@apievangelist.com
-specificationVersion: '0.19'
 common:
-  - name: GitHub Organization
-    url: https://github.com/hasura
+  - url: https://github.com/hasura
+    name: GitHub Organization
     type: GitHubOrganization
-  - name: 'Hasura: Meet PromptQL - Reliable AI on your data'
+  - url: https://hasura.io/
+    name: 'Hasura: Meet PromptQL - Reliable AI on your data'
+    type: Website
     description: >-
       Weve spent years perfecting products that make it effortless to access
       and use data.
-    url: https://hasura.io/
-    type: Website
-  - name: Pricing that scales with your needs - Hasura
-    description: 'null'
-    url: https://hasura.io/pricing
+  - url: https://hasura.io/pricing
+    name: Pricing that scales with your needs - Hasura
     type: Plans
-  - name: Hasura use cases overview | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/getting-started/use-case/overview/
+  - url: https://hasura.io/docs/2.0/getting-started/use-case/overview/
+    name: Hasura use cases overview | Hasura GraphQL Docs
     type: UseCases
-  - name: Authentication and Authorization Overview | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/auth/overview/
+  - url: https://hasura.io/docs/2.0/auth/overview/
+    name: Authentication and Authorization Overview | Hasura GraphQL Docs
     type: Authentication
-  - name: Get started with Hasura Overview | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/getting-started/overview/
+  - url: https://hasura.io/docs/2.0/getting-started/overview/
+    name: Get started with Hasura Overview | Hasura GraphQL Docs
     type: GettingStarted
-  - name: Get started with Hasura Overview | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/getting-started/overview/
+  - url: https://hasura.io/docs/2.0/getting-started/overview/
+    name: Get started with Hasura Overview | Hasura GraphQL Docs
     type: GettingStarted
-  - name: 'Cloud & Enterprise Edition: API Security | Hasura GraphQL Docs'
     description: 'null'
-    url: https://hasura.io/docs/2.0/security/overview/
+  - url: https://hasura.io/docs/2.0/security/overview/
+    name: 'Cloud & Enterprise Edition: API Security | Hasura GraphQL Docs'
     type: Security
-  - name: Hasura CLI | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/hasura-cli/overview/
+  - url: https://hasura.io/docs/2.0/hasura-cli/overview/
+    name: Hasura CLI | Hasura GraphQL Docs
     type: CLI
-  - name: >-
+    description: 'null'
+  - url: https://hasura.io/docs/2.0/cloud-ci-cd/index/
+    name: >-
       Continuous Integration and Continuous Deployment with Hasura Cloud |
       Hasura GraphQL Docs
-    description: 'null'
-    url: https://hasura.io/docs/2.0/cloud-ci-cd/index/
     type: CI/CD
-  - name: Troubleshooting Hasura GraphQL Engine errors | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/get-support/
+  - url: https://hasura.io/docs/2.0/get-support/
+    name: Troubleshooting Hasura GraphQL Engine errors | Hasura GraphQL Docs
     type: Support
-  - name: FAQs | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/faq/index/
+  - url: https://hasura.io/docs/2.0/faq/index/
+    name: FAQs | Hasura GraphQL Docs
     type: FAQ
-  - name: FAQs | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/faq/index/
-    type: FAQ
-  - name: FAQs | Hasura GraphQL Docs
-    description: 'null'
-    url: https://hasura.io/docs/2.0/faq/index/
-    type: FAQ
-  - name: Discord
-    description: 'null'
-    url: https://discord.com/invite/hasura
+  - url: https://discord.com/invite/hasura
+    name: Discord
     type: Discord
-  - name: Glossary | Hasura GraphQL Docs
     description: 'null'
-    url: https://hasura.io/docs/2.0/glossary/index/
+  - url: https://hasura.io/docs/2.0/glossary/index/
+    name: Glossary | Hasura GraphQL Docs
     type: Glossary
-  - name: 'The Hasura Blog: The latest best from Hasura! - Hasura GraphQL Engine Blog'
     description: 'null'
-    url: https://hasura.io/blog
+  - url: https://hasura.io/blog
+    name: 'The Hasura Blog: The latest best from Hasura! - Hasura GraphQL Engine Blog'
     type: Blog
-  - name: Pricing that scales with your needs - Hasura
     description: 'null'
-    url: https://hasura.io/pricing
+  - url: https://hasura.io/pricing
+    name: Pricing that scales with your needs - Hasura
     type: Pricing
-  - name: 'Hasura Customers: Case Studies & Community Stories'
     description: 'null'
-    url: https://hasura.io/customers
+  - url: https://hasura.io/customers
+    name: 'Hasura Customers: Case Studies & Community Stories'
     type: Customers
-  - name: Hasura Events | Hasura GraphQL Engine
     description: 'null'
-    url: https://hasura.io/events?category=Webinar#wall-section
+  - url: https://hasura.io/events?category=Webinar#wall-section
+    name: Hasura Events | Hasura GraphQL Engine
     type: Webinars
-  - name: A Comprehensive Guide to GraphQL with Hasura
     description: 'null'
-    url: https://hasura.io/graphql/
+  - url: https://hasura.io/graphql/
+    name: A Comprehensive Guide to GraphQL with Hasura
     type: Hub
-  - name: Hasura Events | Hasura GraphQL Engine
     description: 'null'
-    url: https://hasura.io/events
+  - url: https://hasura.io/events
+    name: Hasura Events | Hasura GraphQL Engine
     type: Events
-  - name: Hasura Whitepapers
     description: 'null'
-    url: https://hasura.io/resources
+  - url: https://hasura.io/resources
+    name: Hasura Whitepapers
     type: WhitePapers
-  - name: Login | Signup - Hasura Cloud
     description: 'null'
-    url: https://cloud.hasura.io/signup
+  - url: https://cloud.hasura.io/signup
+    name: Login | Signup - Hasura Cloud
     type: Login
-  - name: Hasura Cloud
     description: 'null'
-    url: https://cloud.hasura.io/signup/new_user
+  - url: https://cloud.hasura.io/signup/new_user
+    name: Hasura Cloud
     type: SignUp
-  - name: 'Hasura, Inc.: Hasura Cloud Terms of Service'
     description: 'null'
-    url: https://hasura.io/legal/hasura-cloud-terms-of-service
+  - url: https://hasura.io/legal/hasura-cloud-terms-of-service
+    name: 'Hasura, Inc.: Hasura Cloud Terms of Service'
     type: TermsOfService
-  - name: Connector Hub | Explore Hasura Features & Integration
     description: 'null'
-    url: https://hasura.io/connectors#connectors-list
+  - url: https://hasura.io/connectors#connectors-list
+    name: Connector Hub | Explore Hasura Features & Integration
     type: Integrations
-  - name: Fullstack GraphQL Tutorial Series | Learn GraphQL & Hasura
-    url: https://hasura.io/learn/
-    type: Tutorials
+    description: 'null'
+  - url: https://hasura.io/learn/
     data:
       - name: (MotherDuck) DuckDB
       - name: (Turso) SQLite
@@ -195,13 +174,13 @@ common:
       - name: Trino
       - name: Weaviate
       - name: YugabyteDB PostgreSQL
-  - name: Fullstack GraphQL Tutorial Series | Learn GraphQL & Hasura
-    description: 'null'
-    url: https://hasura.io/learn/#learn-faq
+    name: Fullstack GraphQL Tutorial Series | Learn GraphQL & Hasura
+    type: Tutorials
+  - url: https://hasura.io/learn/#learn-faq
+    name: Fullstack GraphQL Tutorial Series | Learn GraphQL & Hasura
     type: FAQ
-  - name: Features
-    type: Features
-    data:
+    description: 'null'
+  - data:
       - name: Build GraphQL APIs
       - name: Deploy GraphQL APIs
       - name: Run GraphQL APIs
@@ -264,10 +243,23 @@ common:
       - name: Data processing agreement
       - name: Business associate agreement
       - name: HIPAA compliance
-  - name: Features
+    name: Features
     type: Features
-    data:
+  - data:
       - name: Use Cases
       - name: GraphQL backend
       - name: Data Access Layer
       - name: API gateway
+    name: Features
+    type: Features
+created: '2025-06-10T00:00:00.000Z'
+modified: '2025-06-10'
+position: Consumer
+description: >-
+  Weve spent years perfecting products that make it effortless to access and
+  use data.PromptQL for AIAccurate AI by continuously learning the unique
+  context of your business. 
+maintainers:
+  - FN: Kin Lane
+    email: info@apievangelist.com
+specificationVersion: '0.19'
