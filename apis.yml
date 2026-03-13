@@ -13,7 +13,129 @@ apis:
     description: >-
       We've spent years perfecting products that make it effortless to access
       and use data.PromptQL for AIAccurate AI by continuously learning the
-      unique context of your business. 
+      unique context of your business.
+  - aid: hasura:hasura-graphql-api
+    name: Hasura GraphQL API
+    tags:
+      - GraphQL
+      - Queries
+      - Mutations
+      - Subscriptions
+      - Realtime
+    humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
+    properties:
+      - url: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
+        type: Documentation
+      - url: https://hasura.io/docs/2.0/api-reference/overview/
+        type: APIReference
+      - url: https://hasura.io/docs/2.0/api-reference/restified/
+        type: Documentation
+      - url: https://hasura.io/docs/2.0/getting-started/overview/
+        type: GettingStarted
+    description: >-
+      The Hasura GraphQL Engine v2 provides instant realtime GraphQL APIs on
+      your data with fine-grained access control. Supports GraphQL queries,
+      mutations, and subscriptions at the /v1/graphql endpoint, along with
+      RESTified GraphQL endpoints, Relay API, metadata API, schema API, config
+      API, health check API, PG dump API, and explain API.
+  - aid: hasura:hasura-metadata-api
+    name: Hasura Metadata API
+    tags:
+      - Metadata
+      - Configuration
+      - Schema
+    humanURL: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
+    properties:
+      - url: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
+        type: Documentation
+      - url: https://hasura.io/docs/2.0/api-reference/overview/
+        type: APIReference
+    description: >-
+      The Hasura Metadata API allows programmatic management of Hasura GraphQL
+      Engine configuration. All requests are POST requests to the /v1/metadata
+      endpoint, supporting operations for managing data sources, tables,
+      relationships, permissions, remote schemas, actions, event triggers, and
+      RESTified endpoints.
+  - aid: hasura:hasura-ddn-graphql-api
+    name: Hasura DDN GraphQL API
+    tags:
+      - GraphQL
+      - Data Delivery Network
+      - DDN
+      - Supergraph
+      - Realtime
+    humanURL: https://hasura.io/docs/3.0/graphql-api/overview/
+    properties:
+      - url: https://hasura.io/docs/3.0/graphql-api/overview/
+        type: Documentation
+      - url: https://hasura.io/docs/3.0/index/
+        type: Documentation
+      - url: https://hasura.io/docs/3.0/graphql-api/mutations/
+        type: Documentation
+      - url: https://hasura.io/docs/3.0/graphql-api/subscriptions/
+        type: Documentation
+      - url: https://hasura.io/docs/3.0/basics/
+        type: GettingStarted
+      - url: https://hasura.io/docs/3.0/reference/cli/
+        type: CLI
+      - url: https://hasura.io/docs/3.0/reference/cli/installation/
+        type: Installation
+      - url: https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
+        type: APIReference
+    description: >-
+      The Hasura Data Delivery Network (DDN) is a metadata-driven API platform
+      that generates instant GraphQL APIs on any data source. It provides
+      queries, mutations, and subscriptions as root-level fields, with support
+      for global IDs, API versioning, Apollo Federation, filtering, sorting,
+      aggregation, and joins across multiple data connectors including
+      PostgreSQL, MongoDB, ClickHouse, MySQL, Snowflake, Elasticsearch, and
+      SQL Server.
+  - aid: hasura:hasura-cloud-api
+    name: Hasura Cloud API
+    tags:
+      - Cloud
+      - Management
+      - Projects
+    humanURL: https://hasura.io/docs/2.0/api-reference/cloud-api-reference/
+    properties:
+      - url: https://hasura.io/docs/2.0/api-reference/cloud-api-reference/
+        type: Documentation
+      - url: https://hasura.io/docs/2.0/hasura-cloud/projects/index/
+        type: Documentation
+    description: >-
+      The Hasura Cloud API provides a GraphQL endpoint at
+      https://data.pro.hasura.io/v1/graphql to programmatically create and
+      manage Hasura Cloud projects, tenants, collaborators, and
+      configurations. Authentication uses Personal Access Tokens via the
+      Authorization header.
+  - aid: hasura:promptql-natural-language-api
+    name: PromptQL Natural Language API
+    tags:
+      - AI
+      - Natural Language
+      - PromptQL
+      - LLM
+    humanURL: https://promptql.io/docs/promptql-apis/natural-language-api/
+    properties:
+      - url: https://promptql.io/docs/promptql-apis/natural-language-api/
+        type: Documentation
+      - url: https://promptql.io/docs/promptql-apis/execute-program-api/
+        type: Documentation
+      - url: https://hasura.io/docs/promptql/index/
+        type: Documentation
+      - url: https://hasura.io/docs/promptql/quickstart/
+        type: GettingStarted
+      - url: https://github.com/hasura/promptql-python-sdk
+        type: PythonSDK
+      - url: https://www.npmjs.com/package/@hasura/promptql
+        type: NodeSDK
+    description: >-
+      The PromptQL Natural Language API allows interaction with Hasura PromptQL
+      to send natural language messages and receive AI-powered responses with
+      streaming support. It enables accurate AI by continuously learning the
+      unique context of your business data, composing tool calls and LLM tasks
+      for high explainability, accuracy, and repeatability. Available in v1
+      and v2 with Python and JavaScript SDKs.
 name: Hasura
 tags:
   - GraphQL
@@ -252,8 +374,104 @@ common:
       - name: API gateway
     name: Features
     type: Features
+  - url: https://hasura.io/about/
+    name: About Hasura
+    type: AboutPage
+    description: >-
+      Hasura makes data access easy, fast, secure and scalable, with offices
+      in San Francisco and Bangalore.
+  - url: https://status.hasura.io/
+    name: Hasura Status
+    type: StatusPage
+    description: 'null'
+  - url: https://hasura.io/changelog
+    name: Hasura Changelog
+    type: Changelog
+    description: 'null'
+  - url: https://github.com/hasura/graphql-engine
+    name: Hasura GraphQL Engine GitHub Repository
+    type: GitHubRepository
+    description: 'null'
+  - url: https://github.com/hasura/graphql-engine/discussions
+    name: Hasura GitHub Discussions
+    type: GitHubDiscussions
+    description: 'null'
+  - url: https://github.com/hasura/graphql-engine/releases
+    name: Hasura GraphQL Engine Releases
+    type: GitHubReleases
+    description: 'null'
+  - url: https://twitter.com/hasurahq
+    name: Hasura on Twitter
+    type: Twitter
+    description: 'null'
+  - url: https://www.linkedin.com/company/hasura/
+    name: Hasura on LinkedIn
+    type: LinkedIn
+    description: 'null'
+  - url: https://www.youtube.com/channel/UCZo1ciR8pZvdD3Wxp9aSNhQ
+    name: Hasura on YouTube
+    type: YouTube
+    description: 'null'
+  - url: https://www.reddit.com/r/Hasura/
+    name: Hasura on Reddit
+    type: Reddit
+    description: 'null'
+  - url: https://stackoverflow.com/questions/tagged/hasura
+    name: Hasura on Stack Overflow
+    type: StackOverflow
+    description: 'null'
+  - url: https://hasura.io/legal/hasura-privacy-policy
+    name: Hasura Privacy Policy
+    type: PrivacyPolicy
+    description: 'null'
+  - url: https://hasura.io/legal/website-terms-of-use
+    name: Hasura Terms of Use
+    type: TermsOfUse
+    description: 'null'
+  - url: https://hasura.io/contact-us
+    name: Contact Hasura
+    type: Contact
+    description: 'null'
+  - url: https://hasura.io/help/
+    name: Get Help from the Hasura Team
+    type: Help
+    description: 'null'
+  - url: https://hasura.io/community
+    name: Hasura Community
+    type: Community
+    description: 'null'
+  - url: https://hasura.io/ddn
+    name: Hasura Data Delivery Network
+    type: ProductPage
+    description: >-
+      Metadata-driven API platform for building, deploying, governing, and
+      evolving high-quality API layers on all your data.
+  - url: https://hasura.io/docs/2.0/api-reference/overview/
+    name: Hasura v2 API Reference Overview
+    type: APIReference
+    description: 'null'
+  - url: https://hasura.io/docs/3.0/index/
+    name: Hasura DDN Documentation
+    type: Documentation
+    description: 'null'
+  - url: https://hasura.io/user-stories/
+    name: Hasura User Stories and Case Studies
+    type: CaseStudies
+    description: 'null'
+  - url: https://hasura.io/legal
+    name: Hasura Legal
+    type: Legal
+    description: 'null'
+  - url: https://hasura.io/docs/2.0/enterprise/release-notes/
+    name: Hasura Enterprise Edition Release Notes
+    type: ReleaseNotes
+    description: 'null'
+  - url: https://hasura.io/learn-more
+    name: Hasura Data API Platform Overview
+    type: ProductPage
+    description: 'null'
 created: '2025-06-10T00:00:00.000Z'
-modified: '2025-06-10'
+modified: '2026-03-03'
 position: Consumer
 segments:
   - Gateways
@@ -264,5 +482,5 @@ description: >-
   context of your business. 
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
 specificationVersion: '0.19'
