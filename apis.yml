@@ -80,7 +80,8 @@ apis:
         type: CLI
       - url: https://hasura.io/docs/3.0/reference/cli/installation/
         type: Installation
-      - url: https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
+      - url: 
+          https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
         type: APIReference
     description: >-
       The Hasura Data Delivery Network (DDN) is a metadata-driven API platform
@@ -477,9 +478,9 @@ segments:
   - Gateways
   - ProCode_API_Composition
 description: >-
-  We've spent years perfecting products that make it effortless to access and
-  use data.PromptQL for AIAccurate AI by continuously learning the unique
-  context of your business. 
+  We've spent years perfecting products that make it effortless to access and use
+  data.PromptQL for AIAccurate AI by continuously learning the unique context of your
+  business.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
