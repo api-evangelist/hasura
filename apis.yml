@@ -4,8 +4,7 @@ url: >-
 apis:
   - aid: hasura:hasura
     name: Hasura
-    tags:
-      - API
+    tags: []
     humanURL: ' https://hasura.io/'
     properties:
       - url: ' https://hasura.io/'
@@ -18,10 +17,10 @@ apis:
     name: Hasura GraphQL API
     tags:
       - GraphQL
-      - Queries
       - Mutations
-      - Subscriptions
+      - Queries
       - Realtime
+      - Subscriptions
     humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
     properties:
       - url: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
@@ -41,8 +40,8 @@ apis:
   - aid: hasura:hasura-metadata-api
     name: Hasura Metadata API
     tags:
-      - Metadata
       - Configuration
+      - Metadata
       - Schema
     humanURL: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
     properties:
@@ -59,11 +58,11 @@ apis:
   - aid: hasura:hasura-ddn-graphql-api
     name: Hasura DDN GraphQL API
     tags:
-      - GraphQL
       - Data Delivery Network
       - DDN
-      - Supergraph
+      - GraphQL
       - Realtime
+      - Supergraph
     humanURL: https://hasura.io/docs/3.0/graphql-api/overview/
     properties:
       - url: https://hasura.io/docs/3.0/graphql-api/overview/
@@ -80,8 +79,7 @@ apis:
         type: CLI
       - url: https://hasura.io/docs/3.0/reference/cli/installation/
         type: Installation
-      - url: 
-          https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
+      - url: https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
         type: APIReference
     description: >-
       The Hasura Data Delivery Network (DDN) is a metadata-driven API platform
@@ -113,9 +111,9 @@ apis:
     name: PromptQL Natural Language API
     tags:
       - AI
+      - LLM
       - Natural Language
       - PromptQL
-      - LLM
     humanURL: https://promptql.io/docs/promptql-apis/natural-language-api/
     properties:
       - url: https://promptql.io/docs/promptql-apis/natural-language-api/
@@ -139,8 +137,8 @@ apis:
       and v2 with Python and JavaScript SDKs.
 name: Hasura
 tags:
-  - GraphQL
   - Data Access
+  - GraphQL
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
