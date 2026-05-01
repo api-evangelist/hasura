@@ -2,17 +2,6 @@ aid: hasura
 url: >-
   https://raw.githubusercontent.com/api-evangelist/hasura/refs/heads/main/apis.yml
 apis:
-  - aid: hasura:hasura
-    name: Hasura
-    tags: []
-    humanURL: ' https://hasura.io/'
-    properties:
-      - url: ' https://hasura.io/'
-        type: Documentation
-    description: >-
-      We've spent years perfecting products that make it effortless to access
-      and use data.PromptQL for AIAccurate AI by continuously learning the
-      unique context of your business.
   - aid: hasura:hasura-graphql-api
     name: Hasura GraphQL API
     tags:
@@ -470,7 +459,7 @@ common:
     type: ProductPage
     description: 'null'
 created: '2025-06-10T00:00:00.000Z'
-modified: '2026-03-16'
+modified: '2026-04-28'
 position: Consumer
 segments:
   - Gateways
