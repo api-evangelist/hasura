@@ -1,0 +1,13 @@
+{
+  "repo": "hasura",
+  "feeds": [
+    {
+      "source": "https://hasura.io/blog",
+      "feed_url": "https://hasura.io/blog/rss",
+      "saved": 10,
+      "title": "Hasura GraphQL Engine Blog"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:29:34Z"
+}
