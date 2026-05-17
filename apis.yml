@@ -374,7 +374,7 @@ common:
     description: 'null'
   - url: https://hasura.io/changelog
     name: Hasura Changelog
-    type: Changelog
+    type: ChangeLog
     description: 'null'
   - url: https://github.com/hasura/graphql-engine
     name: Hasura GraphQL Engine GitHub Repository
