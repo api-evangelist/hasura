@@ -20,6 +20,9 @@ apis:
         type: Documentation
       - url: https://hasura.io/docs/2.0/getting-started/overview/
         type: GettingStarted
+      - url: >-
+          https://raw.githubusercontent.com/api-evangelist/hasura/refs/heads/main/asyncapi/hasura-asyncapi.yml
+        type: AsyncAPI
     description: >-
       The Hasura GraphQL Engine v2 provides instant realtime GraphQL APIs on
       your data with fine-grained access control. Supports GraphQL queries,
@@ -462,7 +465,7 @@ common:
     url: https://github.com/hasura/promptql-mcp
     type: MCPServer
 created: '2025-06-10T00:00:00.000Z'
-modified: '2026-05-19'
+modified: '2026-05-29'
 position: Consumer
 segments:
   - Gateways

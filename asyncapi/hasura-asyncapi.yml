@@ -1,0 +1,698 @@
+asyncapi: 2.6.0
+info:
+  title: Hasura GraphQL Subscriptions over WebSocket
+  version: 2.0.0
+  description: >
+    AsyncAPI definition for Hasura GraphQL Engine real-time subscriptions
+    delivered over WebSocket at the `/v1/graphql` endpoint.
+
+
+    Hasura supports two WebSocket subprotocols, negotiated via the
+    `Sec-WebSocket-Protocol` HTTP header during the WebSocket handshake:
+
+
+      * `graphql-transport-ws` — the modern protocol implemented by the
+        [graphql-ws](https://github.com/enisdenjo/graphql-ws) library.
+      * `graphql-ws` — the legacy protocol implemented by the
+        [subscriptions-transport-ws](https://github.com/apollographql/subscriptions-transport-ws)
+        library (kept for backwards compatibility with Apollo clients).
+
+
+    Both protocols share a JSON envelope, but message `type` values, the
+    subscription start/stop semantics, and the keep-alive mechanism differ.
+
+    Authentication is performed either via the `connection_init` `payload`
+    (where Hasura accepts headers such as `Authorization`,
+    `x-hasura-admin-secret`, and any `x-hasura-*` session variables), or
+    via query-string parameters on the WebSocket URL.
+  contact:
+    name: Hasura
+    url: https://hasura.io/docs/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+  tags:
+    - name: GraphQL
+    - name: Subscriptions
+    - name: WebSocket
+    - name: Realtime
+
+defaultContentType: application/json
+
+servers:
+  cloud:
+    url: wss://{project}.hasura.app/v1/graphql
+    protocol: wss
+    description: >
+      Hasura Cloud project WebSocket endpoint for GraphQL subscriptions.
+      Replace `{project}` with your Hasura Cloud project subdomain.
+    variables:
+      project:
+        description: Hasura Cloud project subdomain (e.g. `my-app`).
+        default: my-project
+    bindings:
+      ws:
+        bindingVersion: 0.1.0
+        headers:
+          type: object
+          properties:
+            Sec-WebSocket-Protocol:
+              type: string
+              description: >
+                WebSocket subprotocol negotiated during the HTTP upgrade
+                handshake. Clients MUST request one of the two protocols
+                supported by Hasura.
+              enum:
+                - graphql-transport-ws
+                - graphql-ws
+            Authorization:
+              type: string
+              description: >
+                Bearer token used by Hasura's auth webhook or JWT mode.
+                May alternatively be passed inside the `connection_init`
+                payload.
+            x-hasura-admin-secret:
+              type: string
+              description: >
+                Admin secret used to bypass the auth layer (admin-only
+                operations). May alternatively be passed inside the
+                `connection_init` payload.
+  self-hosted:
+    url: wss://{host}:{port}/v1/graphql
+    protocol: wss
+    description: Self-hosted Hasura GraphQL Engine WebSocket endpoint.
+    variables:
+      host:
+        description: Hostname of the self-hosted Hasura instance.
+        default: localhost
+      port:
+        description: Port of the self-hosted Hasura instance.
+        default: '8080'
+
+channels:
+  /v1/graphql:
+    description: >
+      Single WebSocket channel used for all Hasura GraphQL subscription,
+      query, and mutation traffic. The channel multiplexes any number of
+      concurrent operations identified by a client-generated `id`.
+    bindings:
+      ws:
+        bindingVersion: 0.1.0
+        method: GET
+        headers:
+          type: object
+          properties:
+            Sec-WebSocket-Protocol:
+              type: string
+              enum:
+                - graphql-transport-ws
+                - graphql-ws
+    publish:
+      operationId: clientMessages
+      summary: Messages published by the client to Hasura.
+      message:
+        oneOf:
+          # graphql-transport-ws (modern)
+          - $ref: '#/components/messages/ConnectionInit'
+          - $ref: '#/components/messages/Subscribe'
+          - $ref: '#/components/messages/PingClient'
+          - $ref: '#/components/messages/PongClient'
+          - $ref: '#/components/messages/CompleteClient'
+          # graphql-ws (legacy / subscriptions-transport-ws)
+          - $ref: '#/components/messages/LegacyConnectionInit'
+          - $ref: '#/components/messages/LegacyStart'
+          - $ref: '#/components/messages/LegacyStop'
+          - $ref: '#/components/messages/LegacyConnectionTerminate'
+    subscribe:
+      operationId: serverMessages
+      summary: Messages sent by Hasura to the client.
+      message:
+        oneOf:
+          # graphql-transport-ws (modern)
+          - $ref: '#/components/messages/ConnectionAck'
+          - $ref: '#/components/messages/PingServer'
+          - $ref: '#/components/messages/PongServer'
+          - $ref: '#/components/messages/Next'
+          - $ref: '#/components/messages/Error'
+          - $ref: '#/components/messages/CompleteServer'
+          # graphql-ws (legacy / subscriptions-transport-ws)
+          - $ref: '#/components/messages/LegacyConnectionAck'
+          - $ref: '#/components/messages/LegacyConnectionError'
+          - $ref: '#/components/messages/LegacyKeepAlive'
+          - $ref: '#/components/messages/LegacyData'
+          - $ref: '#/components/messages/LegacyError'
+          - $ref: '#/components/messages/LegacyComplete'
+
+components:
+  messages:
+
+    # =========================================================
+    # graphql-transport-ws (Sec-WebSocket-Protocol: graphql-transport-ws)
+    # Source: https://github.com/enisdenjo/graphql-ws/blob/master/PROTOCOL.md
+    # =========================================================
+
+    ConnectionInit:
+      name: ConnectionInit
+      title: connection_init
+      summary: >
+        Client → Server. First message sent after the WebSocket is open.
+        Optionally carries a payload with auth headers and connection
+        parameters that Hasura forwards to its auth layer.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ConnectionInitPayload'
+
+    ConnectionAck:
+      name: ConnectionAck
+      title: connection_ack
+      summary: >
+        Server → Client. Sent after Hasura accepts the connection and
+        the auth handshake completes.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ConnectionAckPayload'
+
+    PingClient:
+      name: PingClient
+      title: ping (client)
+      summary: >
+        Client → Server. Optional keep-alive / latency probe. The peer
+        MUST respond with a `pong`. May also be sent unsolicited as a
+        heartbeat.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PingPongPayload'
+
+    PingServer:
+      name: PingServer
+      title: ping (server)
+      summary: >
+        Server → Client. Optional keep-alive / latency probe. The peer
+        MUST respond with a `pong`. May also be sent unsolicited as a
+        heartbeat.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PingPongPayload'
+
+    PongClient:
+      name: PongClient
+      title: pong (client)
+      summary: >
+        Client → Server. Response to a `ping`. May also be sent
+        unsolicited as a unidirectional heartbeat.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PingPongPayload'
+
+    PongServer:
+      name: PongServer
+      title: pong (server)
+      summary: >
+        Server → Client. Response to a `ping`. May also be sent
+        unsolicited as a unidirectional heartbeat.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/PingPongPayload'
+
+    Subscribe:
+      name: Subscribe
+      title: subscribe
+      summary: >
+        Client → Server. Requests execution of a GraphQL operation
+        (query, mutation, or subscription). The `id` MUST be unique
+        across the WebSocket session; Hasura streams results back
+        tagged with the same `id`.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/SubscribePayload'
+
+    Next:
+      name: Next
+      title: next
+      summary: >
+        Server → Client. Carries a single GraphQL execution result for
+        the operation identified by `id`.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/NextPayload'
+
+    Error:
+      name: Error
+      title: error
+      summary: >
+        Server → Client. Communicates one or more GraphQL errors that
+        occurred before execution started (validation or operation
+        errors). Terminates the operation; no further messages with
+        this `id` will be sent.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/ErrorPayload'
+
+    CompleteClient:
+      name: CompleteClient
+      title: complete (client)
+      summary: >
+        Client → Server. Signals that the client wishes to stop the
+        operation identified by `id`. Used to unsubscribe.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/CompletePayload'
+
+    CompleteServer:
+      name: CompleteServer
+      title: complete (server)
+      summary: >
+        Server → Client. Indicates the operation identified by `id`
+        has completed and no further results will be sent.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/CompletePayload'
+
+    # =========================================================
+    # graphql-ws — legacy / subscriptions-transport-ws
+    # Sec-WebSocket-Protocol: graphql-ws
+    # Source: https://github.com/apollographql/subscriptions-transport-ws/blob/master/PROTOCOL.md
+    # =========================================================
+
+    LegacyConnectionInit:
+      name: LegacyConnectionInit
+      title: connection_init (legacy)
+      summary: >
+        Client → Server. First legacy-protocol message. The payload
+        carries `connectionParams` (auth headers / session variables).
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyConnectionInitPayload'
+
+    LegacyConnectionAck:
+      name: LegacyConnectionAck
+      title: connection_ack (legacy)
+      summary: Server → Client. Acknowledges a successful connection.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyConnectionAckPayload'
+
+    LegacyConnectionError:
+      name: LegacyConnectionError
+      title: connection_error (legacy)
+      summary: >
+        Server → Client. Sent when Hasura rejects the connection (auth
+        failure, parsing error, etc.). The connection will be closed.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyConnectionErrorPayload'
+
+    LegacyKeepAlive:
+      name: LegacyKeepAlive
+      title: ka (legacy)
+      summary: >
+        Server → Client. Periodic keep-alive frame sent after
+        `connection_ack` to keep the WebSocket from idling out.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyKeepAlivePayload'
+
+    LegacyConnectionTerminate:
+      name: LegacyConnectionTerminate
+      title: connection_terminate (legacy)
+      summary: Client → Server. Asks Hasura to close the connection.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyConnectionTerminatePayload'
+
+    LegacyStart:
+      name: LegacyStart
+      title: start (legacy)
+      summary: >
+        Client → Server. Starts a GraphQL operation identified by a
+        unique `id`.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyStartPayload'
+
+    LegacyData:
+      name: LegacyData
+      title: data (legacy)
+      summary: >
+        Server → Client. Carries a GraphQL execution result for the
+        operation identified by `id`.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyDataPayload'
+
+    LegacyError:
+      name: LegacyError
+      title: error (legacy)
+      summary: >
+        Server → Client. Indicates the operation identified by `id`
+        failed before execution.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyErrorPayload'
+
+    LegacyComplete:
+      name: LegacyComplete
+      title: complete (legacy)
+      summary: >
+        Server → Client. Indicates the operation identified by `id`
+        has completed.
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyCompletePayload'
+
+    LegacyStop:
+      name: LegacyStop
+      title: stop (legacy)
+      summary: >
+        Client → Server. Stops the running operation identified by
+        `id` (unsubscribe).
+      contentType: application/json
+      payload:
+        $ref: '#/components/schemas/LegacyStopPayload'
+
+  schemas:
+
+    # ---------- shared ----------
+    GraphQLError:
+      type: object
+      description: >
+        A GraphQL error object as defined by the GraphQL spec.
+      properties:
+        message:
+          type: string
+        locations:
+          type: array
+          items:
+            type: object
+            properties:
+              line:
+                type: integer
+              column:
+                type: integer
+        path:
+          type: array
+          items:
+            oneOf:
+              - type: string
+              - type: integer
+        extensions:
+          type: object
+          additionalProperties: true
+      required:
+        - message
+
+    ExecutionResult:
+      type: object
+      description: GraphQL execution result (`data` and/or `errors`).
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+          nullable: true
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+        extensions:
+          type: object
+          additionalProperties: true
+
+    # ---------- graphql-transport-ws ----------
+
+    ConnectionInitPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: connection_init
+        payload:
+          type: object
+          description: >
+            Optional connection parameters. Hasura reads keys such as
+            `headers` (an object of HTTP headers including `Authorization`
+            and `x-hasura-admin-secret`) for the auth handshake.
+          additionalProperties: true
+          nullable: true
+
+    ConnectionAckPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: connection_ack
+        payload:
+          type: object
+          additionalProperties: true
+          nullable: true
+
+    PingPongPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          enum:
+            - ping
+            - pong
+        payload:
+          type: object
+          additionalProperties: true
+          nullable: true
+
+    SubscribePayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+          description: Unique operation identifier within the session.
+        type:
+          type: string
+          const: subscribe
+        payload:
+          type: object
+          required:
+            - query
+          properties:
+            operationName:
+              type: string
+              nullable: true
+            query:
+              type: string
+              description: The GraphQL document.
+            variables:
+              type: object
+              additionalProperties: true
+              nullable: true
+            extensions:
+              type: object
+              additionalProperties: true
+              nullable: true
+
+    NextPayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: next
+        payload:
+          $ref: '#/components/schemas/ExecutionResult'
+
+    ErrorPayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: error
+        payload:
+          type: array
+          items:
+            $ref: '#/components/schemas/GraphQLError'
+
+    CompletePayload:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: complete
+
+    # ---------- graphql-ws (legacy) ----------
+
+    LegacyConnectionInitPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: connection_init
+        payload:
+          type: object
+          description: >
+            Optional `connectionParams`. Hasura reads `headers` and
+            individual entries (e.g. `Authorization`,
+            `x-hasura-admin-secret`, `x-hasura-*`).
+          additionalProperties: true
+          nullable: true
+
+    LegacyConnectionAckPayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: connection_ack
+        payload:
+          type: object
+          additionalProperties: true
+          nullable: true
+
+    LegacyConnectionErrorPayload:
+      type: object
+      required:
+        - type
+        - payload
+      properties:
+        type:
+          type: string
+          const: connection_error
+        payload:
+          type: object
+          description: Error details describing why the connection was rejected.
+          additionalProperties: true
+
+    LegacyKeepAlivePayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: ka
+          description: >
+            Keep-alive frame. Sent by Hasura after `connection_ack` and
+            then periodically. No payload.
+
+    LegacyConnectionTerminatePayload:
+      type: object
+      required:
+        - type
+      properties:
+        type:
+          type: string
+          const: connection_terminate
+
+    LegacyStartPayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+          description: Unique operation identifier within the session.
+        type:
+          type: string
+          const: start
+        payload:
+          type: object
+          required:
+            - query
+          properties:
+            operationName:
+              type: string
+              nullable: true
+            query:
+              type: string
+            variables:
+              type: object
+              additionalProperties: true
+              nullable: true
+
+    LegacyDataPayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: data
+        payload:
+          $ref: '#/components/schemas/ExecutionResult'
+
+    LegacyErrorPayload:
+      type: object
+      required:
+        - id
+        - type
+        - payload
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: error
+        payload:
+          description: >
+            Pre-execution error (validation, parse). Hasura sends a
+            GraphQL error object or array of error objects here.
+          oneOf:
+            - $ref: '#/components/schemas/GraphQLError'
+            - type: array
+              items:
+                $ref: '#/components/schemas/GraphQLError'
+
+    LegacyCompletePayload:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: complete
+
+    LegacyStopPayload:
+      type: object
+      required:
+        - id
+        - type
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: stop
