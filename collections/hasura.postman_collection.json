@@ -1,0 +1,1079 @@
+{
+  "item": [
+    {
+      "id": "ad4b6fb8-4f45-4fe6-8b61-87dca6db65d2",
+      "name": "GraphQL",
+      "description": {
+        "content": "GraphQL query, mutation, and subscription endpoints.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "343a8f4a-e931-448b-8fe4-a7f9d900f6f9",
+      "name": "Metadata",
+      "description": {
+        "content": "Hasura metadata management.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "17548322-1b0f-4ef3-a9c1-0f13cf26151d",
+      "name": "Schema",
+      "description": {
+        "content": "Schema and SQL operations.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "9816674f-0c35-457d-a6ec-2ba5554fbebe",
+      "name": "Operations",
+      "description": {
+        "content": "Health, version, config, pg_dump, and explain endpoints.",
+        "type": "text/plain"
+      },
+      "item": [],
+      "event": []
+    },
+    {
+      "id": "5a971ef5-b057-4cbc-9593-8957f734ba2b",
+      "name": "Execute a GraphQL query, mutation, or subscription",
+      "request": {
+        "name": "Execute a GraphQL query, mutation, or subscription",
+        "description": {
+          "content": "Primary GraphQL endpoint. Accepts a single GraphQL operation or a\nbatched array. Always returns HTTP 200; errors are returned in the\nresponse body.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "graphql"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": \"string\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "55dc12b7-4c03-4fd4-8378-4241f4fd4a22",
+          "name": "GraphQL response.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "graphql"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"string\",\n  \"operationName\": \"string\",\n  \"variables\": {\n    \"key_0\": 5704,\n    \"key_1\": \"string\",\n    \"key_2\": 6553.7263708329165\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"key_0\": 3621.4022315169104,\n    \"key_1\": 3549.915525816911\n  },\n  \"errors\": [\n    {\n      \"key_0\": 5959,\n      \"key_1\": 5639.5528132921745\n    },\n    {\n      \"key_0\": 5675,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"extensions\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4362.959163081296\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7a2ae504-41e0-4e91-9043-c5ea7b76ff9d",
+      "name": "Execute a Relay-compatible GraphQL operation",
+      "request": {
+        "name": "Execute a Relay-compatible GraphQL operation",
+        "description": {},
+        "url": {
+          "path": [
+            "v1beta1",
+            "relay"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"key_0\": \"string\",\n    \"key_1\": true,\n    \"key_2\": \"string\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "2de861f3-5ce7-43e7-b59f-2a2e7fb46cde",
+          "name": "GraphQL response.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1beta1",
+                "relay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"key_0\": 6174\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"data\": {\n    \"key_0\": 3621.4022315169104,\n    \"key_1\": 3549.915525816911\n  },\n  \"errors\": [\n    {\n      \"key_0\": 5959,\n      \"key_1\": 5639.5528132921745\n    },\n    {\n      \"key_0\": 5675,\n      \"key_1\": \"string\"\n    }\n  ],\n  \"extensions\": {\n    \"key_0\": \"string\",\n    \"key_1\": 4362.959163081296\n  }\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4ddcd938-774c-4f36-964b-ba79b6b6c93e",
+      "name": "Manage Hasura metadata",
+      "request": {
+        "name": "Manage Hasura metadata",
+        "description": {
+          "content": "Single endpoint for all metadata operations such as tracking tables,\ncreating relationships, managing permissions, remote schemas, and\nactions. The request body specifies the metadata `type` (operation)\nand `args`.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "metadata"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"key_0\": true\n  },\n  \"version\": \"<integer>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "58cc8f67-b542-4c56-b295-8eeb39b49080",
+          "name": "Metadata operation result.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"version\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": 4437.526155532521,\n  \"key_1\": 609\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        },
+        {
+          "id": "bb8093ad-5dde-4e25-8342-d16a1d799331",
+          "name": "Invalid metadata request.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "metadata"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"key_0\": \"string\",\n    \"key_1\": false\n  },\n  \"version\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "Bad Request",
+          "code": 400,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "2a18ca10-c3b5-4ec2-9c3e-4d2c402138a6",
+      "name": "Execute schema/run_sql and other schema-level operations",
+      "request": {
+        "name": "Execute schema/run_sql and other schema-level operations",
+        "description": {
+          "content": "Schema API used to run SQL, manage event triggers, and perform other\ndatabase-schema operations. Replaces the deprecated /v1/query endpoint\nfor Hasura v2 metadata format.\n",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v2",
+            "query"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"key_0\": true,\n    \"key_1\": \"string\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "1ee80884-c8d3-4faa-9a50-e5fdf33cc49e",
+          "name": "Operation result.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v2",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"key_0\": 2759.1525682112015,\n    \"key_1\": false\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": 4437.526155532521,\n  \"key_1\": 609\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "842e9d38-f537-4591-b3d6-f4429ab71b59",
+      "name": "Dump a Postgres source",
+      "request": {
+        "name": "Dump a Postgres source",
+        "description": {
+          "content": "Execute pg_dump against a configured Postgres source.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1alpha1",
+            "pg_dump"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"opts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"clean_output\": \"<boolean>\",\n  \"source\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "f37bdfe1-71ea-4909-acd4-68d5f796e62f",
+          "name": "SQL dump output (text/plain).",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1alpha1",
+                "pg_dump"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"opts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"clean_output\": \"<boolean>\",\n  \"source\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "156dd385-5cfb-45e2-8bb6-719e29609861",
+      "name": "Explain a GraphQL query",
+      "request": {
+        "name": "Explain a GraphQL query",
+        "description": {
+          "content": "Returns the SQL plan for a given GraphQL query.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "v1",
+            "graphql",
+            "explain"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"query\": {\n    \"query\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"variables\": {\n      \"key_0\": \"string\"\n    }\n  },\n  \"user\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "ad6913f8-5d0d-4fa5-97b7-c8d39235ed3f",
+          "name": "Query plan.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "graphql",
+                "explain"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": {\n    \"query\": \"string\",\n    \"operationName\": \"string\",\n    \"variables\": {\n      \"key_0\": \"string\",\n      \"key_1\": 7560.229228749455\n    }\n  },\n  \"user\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "[\n  {\n    \"key_0\": true\n  },\n  {\n    \"key_0\": true,\n    \"key_1\": 3045.4032911821905,\n    \"key_2\": 6453,\n    \"key_3\": 1010,\n    \"key_4\": 8707.774690211541\n  }\n]",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "397f825a-4363-45cc-be62-46658f408103",
+      "name": "Health check",
+      "request": {
+        "name": "Health check",
+        "description": {
+          "content": "Returns 200 OK if the server is healthy.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "healthz"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "text/plain"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "1a49ef25-3710-457b-bc11-5d9e329e22ec",
+          "name": "Server is healthy.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "healthz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "string",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        },
+        {
+          "id": "147d1485-90de-45d3-9446-300cf803b81f",
+          "name": "Server is unhealthy.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "healthz"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "Internal Server Error",
+          "code": 500,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "7829110a-91f6-4a89-9168-5b3dac00ed5d",
+      "name": "Check health of configured data sources",
+      "request": {
+        "name": "Check health of configured data sources",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            "source_health"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "9dafb734-1929-4db5-8211-7dee89ccbdd4",
+          "name": "Source health report.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "source_health"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": 4437.526155532521,\n  \"key_1\": 609\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "dd4cc7d2-53d6-498e-b5aa-c3e197751d7b",
+      "name": "Retrieve server configuration",
+      "request": {
+        "name": "Retrieve server configuration",
+        "description": {},
+        "url": {
+          "path": [
+            "v1alpha1",
+            "config"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "a3643978-53f2-4415-a2a5-db51a9568d06",
+          "name": "Server configuration.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1alpha1",
+                "config"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"key_0\": 4437.526155532521,\n  \"key_1\": 609\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "d213ca3f-7e4c-4088-ad51-c474a9c5e744",
+      "name": "Retrieve server version",
+      "request": {
+        "name": "Retrieve server version",
+        "description": {},
+        "url": {
+          "path": [
+            "v1",
+            "version"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": []
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "GET",
+        "auth": null
+      },
+      "response": [
+        {
+          "id": "6f36abf0-6dc2-4234-9bf3-164e41e50514",
+          "name": "Server version.",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "v1",
+                "version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "x-hasura-admin-secret",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "body": {}
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"version\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://my-graphql-engine.example.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6ccdbc6a-dd1d-426b-8c34-c58d6cc5cc8e",
+    "name": "Hasura GraphQL Engine HTTP APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+      "type": "text/plain"
+    }
+  }
+}

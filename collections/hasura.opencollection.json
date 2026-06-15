@@ -1,0 +1,152 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hasura GraphQL Engine HTTP APIs",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-hasura-admin-secret",
+      "value": "{{x-hasura-admin-secret}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Execute a GraphQL query, mutation, or subscription",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v1/graphql",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Primary GraphQL endpoint. Accepts a single GraphQL operation or a\nbatched array. Always returns HTTP 200; errors are returned in the\nresponse body.\n"
+    },
+    {
+      "info": {
+        "name": "Execute a Relay-compatible GraphQL operation",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v1beta1/relay",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute a Relay-compatible GraphQL operation"
+    },
+    {
+      "info": {
+        "name": "Manage Hasura metadata",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v1/metadata",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Single endpoint for all metadata operations such as tracking tables,\ncreating relationships, managing permissions, remote schemas, and\nactions. The request body specifies the metadata `type` (operation)\nand `args`.\n"
+    },
+    {
+      "info": {
+        "name": "Execute schema/run_sql and other schema-level operations",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v2/query",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Schema API used to run SQL, manage event triggers, and perform other\ndatabase-schema operations. Replaces the deprecated /v1/query endpoint\nfor Hasura v2 metadata format.\n"
+    },
+    {
+      "info": {
+        "name": "Dump a Postgres source",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v1alpha1/pg_dump",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Execute pg_dump against a configured Postgres source."
+    },
+    {
+      "info": {
+        "name": "Explain a GraphQL query",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://my-graphql-engine.example.com/v1/graphql/explain",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Returns the SQL plan for a given GraphQL query."
+    },
+    {
+      "info": {
+        "name": "Health check",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://my-graphql-engine.example.com/healthz"
+      },
+      "docs": "Returns 200 OK if the server is healthy."
+    },
+    {
+      "info": {
+        "name": "Check health of configured data sources",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://my-graphql-engine.example.com/v1/source_health"
+      },
+      "docs": "Check health of configured data sources"
+    },
+    {
+      "info": {
+        "name": "Retrieve server configuration",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://my-graphql-engine.example.com/v1alpha1/config"
+      },
+      "docs": "Retrieve server configuration"
+    },
+    {
+      "info": {
+        "name": "Retrieve server version",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://my-graphql-engine.example.com/v1/version"
+      },
+      "docs": "Retrieve server version"
+    }
+  ],
+  "bundled": true
+}
