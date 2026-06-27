@@ -3,12 +3,12 @@
   "feeds": [
     {
       "source": "https://hasura.io/blog",
-      "feed_url": "https://hasura.io/blog",
+      "feed_url": "https://hasura.io/blog/rss/",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     }
   ],
   "post_count": 55,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z"
 }

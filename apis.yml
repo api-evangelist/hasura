@@ -230,7 +230,7 @@ common:
   description: 'null'
 - url: https://cloud.hasura.io/signup/new_user
   name: Hasura Cloud
-  type: SignUp
+  type: Signup
   description: 'null'
 - url: https://hasura.io/legal/hasura-cloud-terms-of-service
   name: 'Hasura, Inc.: Hasura Cloud Terms of Service'
@@ -419,7 +419,7 @@ common:
   description: 'null'
 - url: https://hasura.io/legal/website-terms-of-use
   name: Hasura Terms of Use
-  type: TermsOfUse
+  type: TermsOfService
   description: 'null'
 - url: https://hasura.io/contact-us
   name: Contact Hasura
