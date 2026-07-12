@@ -137,6 +137,14 @@ type: Index
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+- type: TrustCenter
+  url: security/hasura-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/hasura-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/hasura-domain-security.yml
+- type: Authentication
+  url: authentication/hasura-authentication.yml
 - url: https://github.com/hasura
   name: GitHub Organization
   type: GitHubOrganization

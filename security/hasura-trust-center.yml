@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: searched
+probe: true
+source: https://hasura.io/security
+url: https://hasura.io/security
+certifications:
+- SOC 2
+- ISO 27001
+- HIPAA
+- GDPR
+evidence:
+- source: https://hasura.io/security
+  keywords:
+  - soc 2
+  - iso/iec 27001
+  - hipaa
+  - gdpr

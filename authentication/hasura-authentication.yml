@@ -1,0 +1,24 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/hasura-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: adminSecret
+  type: apiKey
+  in: header
+  parameter: x-hasura-admin-secret
+  description: Admin secret configured via HASURA_GRAPHQL_ADMIN_SECRET.
+  sources:
+  - openapi/hasura-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: JWT token, when JWT authentication is configured.
+  sources:
+  - openapi/hasura-openapi.yml
