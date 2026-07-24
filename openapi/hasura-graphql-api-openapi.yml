@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: Hasura Engine HTTP APIs Graphql API
+  description: 'Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its
+
+    GraphQL endpoint. This specification documents the most commonly used
+
+    endpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the
+
+    Metadata API, the Schema API, the PG Dump API, the Explain API, the
+
+    Health Check API, the Source Health Check API, the Config API, and the
+
+    Version API.
+
+
+    Authentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,
+
+    requests must include the `x-hasura-admin-secret` header (or a valid JWT).
+
+    Roles and session variables are passed via `x-hasura-role` and any
+
+    `x-hasura-*` session headers.
+
+    '
+  version: 2.0.0
+  contact:
+    name: Hasura
+    url: https://hasura.io/docs/2.0/api-reference/overview/
+servers:
+- url: https://my-graphql-engine.example.com
+  description: Self-hosted Hasura GraphQL Engine
+security:
+- adminSecret: []
+- bearerAuth: []
+tags:
+- name: Graphql
+paths:
+  /v1/graphql:
+    post:
+      summary: Execute a GraphQL query, mutation, or subscription
+      description: 'Primary GraphQL endpoint. Accepts a single GraphQL operation or a
+
+        batched array. Always returns HTTP 200; errors are returned in the
+
+        response body.
+
+        '
+      operationId: graphql
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              oneOf:
+              - $ref: '#/components/schemas/GraphQLRequest'
+              - type: array
+                items:
+                  $ref: '#/components/schemas/GraphQLRequest'
+      responses:
+        '200':
+          description: GraphQL response.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GraphQLResponse'
+      tags:
+      - Graphql
+  /v1/graphql/explain:
+    post:
+      summary: Explain a GraphQL query
+      description: Returns the SQL plan for a given GraphQL query.
+      operationId: explain
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - query
+              properties:
+                query:
+                  $ref: '#/components/schemas/GraphQLRequest'
+                user:
+                  type: object
+                  description: Optional session variables.
+                  additionalProperties:
+                    type: string
+      responses:
+        '200':
+          description: Query plan.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  additionalProperties: true
+      tags:
+      - Graphql
+components:
+  schemas:
+    GraphQLRequest:
+      type: object
+      required:
+      - query
+      properties:
+        query:
+          type: string
+          description: The GraphQL query string.
+        operationName:
+          type: string
+          description: Name of the operation to execute, if multiple are provided.
+        variables:
+          type: object
+          description: Variables for the GraphQL operation.
+          additionalProperties: true
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        errors:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        extensions:
+          type: object
+          additionalProperties: true
+  securitySchemes:
+    adminSecret:
+      type: apiKey
+      in: header
+      name: x-hasura-admin-secret
+      description: Admin secret configured via HASURA_GRAPHQL_ADMIN_SECRET.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token, when JWT authentication is configured.

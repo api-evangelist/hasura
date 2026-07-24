@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: Hasura Engine HTTP APIs Graphql Metadata API
+  description: 'Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its
+
+    GraphQL endpoint. This specification documents the most commonly used
+
+    endpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the
+
+    Metadata API, the Schema API, the PG Dump API, the Explain API, the
+
+    Health Check API, the Source Health Check API, the Config API, and the
+
+    Version API.
+
+
+    Authentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,
+
+    requests must include the `x-hasura-admin-secret` header (or a valid JWT).
+
+    Roles and session variables are passed via `x-hasura-role` and any
+
+    `x-hasura-*` session headers.
+
+    '
+  version: 2.0.0
+  contact:
+    name: Hasura
+    url: https://hasura.io/docs/2.0/api-reference/overview/
+servers:
+- url: https://my-graphql-engine.example.com
+  description: Self-hosted Hasura GraphQL Engine
+security:
+- adminSecret: []
+- bearerAuth: []
+tags:
+- name: Metadata
+  description: Hasura metadata management.
+paths:
+  /v1/metadata:
+    post:
+      summary: Manage Hasura metadata
+      description: 'Single endpoint for all metadata operations such as tracking tables,
+
+        creating relationships, managing permissions, remote schemas, and
+
+        actions. The request body specifies the metadata `type` (operation)
+
+        and `args`.
+
+        '
+      operationId: metadata
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetadataRequest'
+      responses:
+        '200':
+          description: Metadata operation result.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: true
+        '400':
+          description: Invalid metadata request.
+      tags:
+      - Metadata
+components:
+  schemas:
+    MetadataRequest:
+      type: object
+      required:
+      - type
+      - args
+      properties:
+        type:
+          type: string
+          description: The metadata operation, e.g. `pg_track_table`, `export_metadata`, `bulk`.
+        version:
+          type: integer
+          description: Optional metadata API version.
+        args:
+          description: Arguments for the metadata operation.
+          oneOf:
+          - type: object
+            additionalProperties: true
+          - type: array
+            items:
+              type: object
+              additionalProperties: true
+  securitySchemes:
+    adminSecret:
+      type: apiKey
+      in: header
+      name: x-hasura-admin-secret
+      description: Admin secret configured via HASURA_GRAPHQL_ADMIN_SECRET.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT token, when JWT authentication is configured.
