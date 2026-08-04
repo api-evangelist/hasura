@@ -1,0 +1,209 @@
+{
+  "info": {
+    "_postman_id": "0b1ded5f-4644-4170-ada8-dd064d4bfaf0",
+    "name": "Hasura Engine HTTP APIs Graphql Metadata API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:12.000Z",
+    "updatedAt": "2026-07-28T01:53:12.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0b1ded5f-4644-4170-ada8-dd064d4bfaf0"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "metadata",
+          "item": [
+            {
+              "name": "Manage Hasura metadata",
+              "id": "fb1c1896-4b84-45c9-b50b-363d9d6e64a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"in_f\": \"deserunt incididunt dolor aliqua in\"\n  },\n  \"version\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/metadata",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "metadata"
+                  ]
+                },
+                "description": "Single endpoint for all metadata operations such as tracking tables,\ncreating relationships, managing permissions, remote schemas, and\nactions. The request body specifies the metadata `type` (operation)\nand `args`.\n"
+              },
+              "response": [
+                {
+                  "id": "01b220f4-c04b-47eb-9e95-23f08c64cef8",
+                  "name": "Metadata operation result.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"in_f\": \"deserunt incididunt dolor aliqua in\"\n  },\n  \"version\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "metadata"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"consequata5\": true,\n  \"sint_9\": -43887955,\n  \"irure_\": -53031251.90135689\n}",
+                  "createdAt": "2026-07-28T01:53:12.000Z",
+                  "updatedAt": "2026-07-28T01:53:12.000Z",
+                  "uid": "35240-01b220f4-c04b-47eb-9e95-23f08c64cef8"
+                },
+                {
+                  "id": "2c413872-e4f9-49e7-9377-ed934852f846",
+                  "name": "Invalid metadata request.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"<string>\",\n  \"args\": {\n    \"in_f\": \"deserunt incididunt dolor aliqua in\"\n  },\n  \"version\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/metadata",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "metadata"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:53:12.000Z",
+                  "updatedAt": "2026-07-28T01:53:12.000Z",
+                  "uid": "35240-2c413872-e4f9-49e7-9377-ed934852f846"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:12.000Z",
+              "updatedAt": "2026-07-28T01:53:12.000Z",
+              "uid": "35240-fb1c1896-4b84-45c9-b50b-363d9d6e64a0"
+            }
+          ],
+          "id": "1451091e-b1b5-4864-8d8e-5815af60ee9a",
+          "createdAt": "2026-07-28T01:53:12.000Z",
+          "updatedAt": "2026-07-28T01:53:12.000Z",
+          "uid": "35240-1451091e-b1b5-4864-8d8e-5815af60ee9a"
+        }
+      ],
+      "id": "fc1c7602-9a77-476d-9183-99e62045f699",
+      "createdAt": "2026-07-28T01:53:12.000Z",
+      "updatedAt": "2026-07-28T01:53:12.000Z",
+      "uid": "35240-fc1c7602-9a77-476d-9183-99e62045f699"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}

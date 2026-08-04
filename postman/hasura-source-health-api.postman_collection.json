@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "3bf93dff-54a5-4bbb-8990-f0f64692cf2d",
+    "name": "Hasura Engine HTTP APIs Graphql Source Health API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:14.000Z",
+    "updatedAt": "2026-07-28T01:53:14.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3bf93dff-54a5-4bbb-8990-f0f64692cf2d"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "source_health",
+          "item": [
+            {
+              "name": "Check health of configured data sources",
+              "id": "fd23a952-7564-4139-b96d-0e6537da3023",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/source_health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "source_health"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3a03098c-f4b1-4cd2-b169-281156f3bbc3",
+                  "name": "Source health report.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/source_health",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "source_health"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"officia_c_\": -86723861,\n  \"ea__\": \"\"\n}",
+                  "createdAt": "2026-07-28T01:53:14.000Z",
+                  "updatedAt": "2026-07-28T01:53:14.000Z",
+                  "uid": "35240-3a03098c-f4b1-4cd2-b169-281156f3bbc3"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:14.000Z",
+              "updatedAt": "2026-07-28T01:53:14.000Z",
+              "uid": "35240-fd23a952-7564-4139-b96d-0e6537da3023"
+            }
+          ],
+          "id": "41bebbb3-3368-4233-af8d-d3d3d5bd4421",
+          "createdAt": "2026-07-28T01:53:14.000Z",
+          "updatedAt": "2026-07-28T01:53:14.000Z",
+          "uid": "35240-41bebbb3-3368-4233-af8d-d3d3d5bd4421"
+        }
+      ],
+      "id": "714e2c71-be6b-41c8-8bdc-482d1887a75a",
+      "createdAt": "2026-07-28T01:53:14.000Z",
+      "updatedAt": "2026-07-28T01:53:14.000Z",
+      "uid": "35240-714e2c71-be6b-41c8-8bdc-482d1887a75a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}

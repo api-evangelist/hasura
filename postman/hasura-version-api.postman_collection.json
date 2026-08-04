@@ -1,0 +1,132 @@
+{
+  "info": {
+    "_postman_id": "48abfcfe-0298-4537-81d7-acea4c0bd419",
+    "name": "Hasura Engine HTTP APIs Graphql Version API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:17.000Z",
+    "updatedAt": "2026-07-28T01:53:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-48abfcfe-0298-4537-81d7-acea4c0bd419"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "version",
+          "item": [
+            {
+              "name": "Retrieve server version",
+              "id": "fe516fa8-d158-42b3-965f-ee1e1ce5e0a3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1/version",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "version"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "bb2db99d-41f1-45bd-be67-a4eda82c2313",
+                  "name": "Server version.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/version",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "version"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"version\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:53:18.000Z",
+                  "updatedAt": "2026-07-28T01:53:18.000Z",
+                  "uid": "35240-bb2db99d-41f1-45bd-be67-a4eda82c2313"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:18.000Z",
+              "updatedAt": "2026-07-28T01:53:18.000Z",
+              "uid": "35240-fe516fa8-d158-42b3-965f-ee1e1ce5e0a3"
+            }
+          ],
+          "id": "e19da4e1-1e04-4a86-84dd-8756f9cd7a59",
+          "createdAt": "2026-07-28T01:53:17.000Z",
+          "updatedAt": "2026-07-28T01:53:17.000Z",
+          "uid": "35240-e19da4e1-1e04-4a86-84dd-8756f9cd7a59"
+        }
+      ],
+      "id": "8397c3f6-08bd-4ccc-b0ae-89c73e171a7a",
+      "createdAt": "2026-07-28T01:53:17.000Z",
+      "updatedAt": "2026-07-28T01:53:17.000Z",
+      "uid": "35240-8397c3f6-08bd-4ccc-b0ae-89c73e171a7a"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}

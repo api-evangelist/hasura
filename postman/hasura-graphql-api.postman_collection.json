@@ -1,0 +1,275 @@
+{
+  "info": {
+    "_postman_id": "cdc92e97-8098-454c-82aa-c9d40d38ae89",
+    "name": "Hasura Engine HTTP APIs Graphql API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:10.000Z",
+    "updatedAt": "2026-07-28T01:53:10.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cdc92e97-8098-454c-82aa-c9d40d38ae89"
+  },
+  "item": [
+    {
+      "name": "v1",
+      "item": [
+        {
+          "name": "graphql",
+          "item": [
+            {
+              "name": "explain",
+              "item": [
+                {
+                  "name": "Explain a GraphQL query",
+                  "id": "830a1da6-70a4-4e0b-9dce-5774efc1494a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"query\": {\n    \"query\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"variables\": {\n      \"Excepteur_8\": -56956570.667517826,\n      \"deserunt9\": -85690342\n    }\n  },\n  \"user\": {\n    \"fugiat_b\": \"<string>\",\n    \"quis79\": \"<string>\",\n    \"estc28\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/graphql/explain",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "graphql",
+                        "explain"
+                      ]
+                    },
+                    "description": "Returns the SQL plan for a given GraphQL query."
+                  },
+                  "response": [
+                    {
+                      "id": "4bd6cb68-1d0a-4c5a-9eeb-c4cf742e3d90",
+                      "name": "Query plan.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-hasura-admin-secret",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"query\": {\n    \"query\": \"<string>\",\n    \"operationName\": \"<string>\",\n    \"variables\": {\n      \"Excepteur_8\": -56956570.667517826,\n      \"deserunt9\": -85690342\n    }\n  },\n  \"user\": {\n    \"fugiat_b\": \"<string>\",\n    \"quis79\": \"<string>\",\n    \"estc28\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/v1/graphql/explain",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "v1",
+                            "graphql",
+                            "explain"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"eiusmod_f_\": -53241464.152113505\n  },\n  {\n    \"tempor_28\": true,\n    \"cillum5d\": -4028806,\n    \"eiusmod_9\": \"magna do nulla\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:53:11.000Z",
+                      "updatedAt": "2026-07-28T01:53:11.000Z",
+                      "uid": "35240-4bd6cb68-1d0a-4c5a-9eeb-c4cf742e3d90"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:53:11.000Z",
+                  "updatedAt": "2026-07-28T01:53:11.000Z",
+                  "uid": "35240-830a1da6-70a4-4e0b-9dce-5774efc1494a"
+                }
+              ],
+              "id": "0eecb37f-59ee-4f71-860e-8dd671e6b832",
+              "createdAt": "2026-07-28T01:53:11.000Z",
+              "updatedAt": "2026-07-28T01:53:11.000Z",
+              "uid": "35240-0eecb37f-59ee-4f71-860e-8dd671e6b832"
+            },
+            {
+              "name": "Execute a GraphQL query, mutation, or subscription",
+              "id": "3f73b8d0-5076-4e1d-ad72-1429a2f734ef",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"mollit_b3\": \"tempor consectetur mollit exercitation ad\",\n    \"sed_68\": true\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1/graphql",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "graphql"
+                  ]
+                },
+                "description": "Primary GraphQL endpoint. Accepts a single GraphQL operation or a\nbatched array. Always returns HTTP 200; errors are returned in the\nresponse body.\n"
+              },
+              "response": [
+                {
+                  "id": "f1dc9623-6e3c-4e47-9385-691774bedb6c",
+                  "name": "GraphQL response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"mollit_b3\": \"tempor consectetur mollit exercitation ad\",\n    \"sed_68\": true\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1/graphql",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1",
+                        "graphql"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"cillum5\": -73148914.11320552\n  },\n  \"errors\": [\n    {\n      \"ipsum197\": 87123258.73714519,\n      \"velit_c\": -5362531.700510591\n    },\n    {\n      \"Ut30\": \"commodo voluptate proident ut et\",\n      \"in_46\": \"mollit ullamco commodo\",\n      \"ex4ec\": \"Ut labore aute\"\n    }\n  ],\n  \"extensions\": {\n    \"nostrud95\": true\n  }\n}",
+                  "createdAt": "2026-07-28T01:53:11.000Z",
+                  "updatedAt": "2026-07-28T01:53:11.000Z",
+                  "uid": "35240-f1dc9623-6e3c-4e47-9385-691774bedb6c"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:11.000Z",
+              "updatedAt": "2026-07-28T01:53:11.000Z",
+              "uid": "35240-3f73b8d0-5076-4e1d-ad72-1429a2f734ef"
+            }
+          ],
+          "id": "6a748f00-b168-4712-a2be-6e1c4495b27b",
+          "createdAt": "2026-07-28T01:53:11.000Z",
+          "updatedAt": "2026-07-28T01:53:11.000Z",
+          "uid": "35240-6a748f00-b168-4712-a2be-6e1c4495b27b"
+        }
+      ],
+      "id": "03093540-7eb7-4488-b060-17a23a7d881f",
+      "createdAt": "2026-07-28T01:53:11.000Z",
+      "updatedAt": "2026-07-28T01:53:11.000Z",
+      "uid": "35240-03093540-7eb7-4488-b060-17a23a7d881f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}

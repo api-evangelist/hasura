@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "99e74d34-6ff1-4a0c-a579-3d0f9b64f11e",
+    "name": "Hasura Engine HTTP APIs Graphql V1beta1 API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:15.000Z",
+    "updatedAt": "2026-07-28T01:53:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-99e74d34-6ff1-4a0c-a579-3d0f9b64f11e"
+  },
+  "item": [
+    {
+      "name": "v1beta1",
+      "item": [
+        {
+          "name": "relay",
+          "item": [
+            {
+              "name": "Execute a Relay-compatible GraphQL operation",
+              "id": "18c1d3fc-7b0a-4523-9543-e9a16f71fbb2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"aliqua_f5\": -83877338.37528075,\n    \"proident_1ee\": 5617097,\n    \"consequat_45c\": -60342039.201660745,\n    \"ut_d8\": 30840213.16689603\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1beta1/relay",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1beta1",
+                    "relay"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "9f2d5c17-7779-4f73-a6d4-c20ae784515f",
+                  "name": "GraphQL response.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"query\": \"<string>\",\n  \"operationName\": \"<string>\",\n  \"variables\": {\n    \"aliqua_f5\": -83877338.37528075,\n    \"proident_1ee\": 5617097,\n    \"consequat_45c\": -60342039.201660745,\n    \"ut_d8\": 30840213.16689603\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1beta1/relay",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1beta1",
+                        "relay"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"data\": {\n    \"incididunt_54\": \"voluptate Lorem\"\n  },\n  \"errors\": [\n    {\n      \"dolor_560\": 51031932.0471392\n    },\n    {\n      \"inac1\": \"do ipsum Duis proident\",\n      \"quis_f1_\": 93049565,\n      \"et28_\": \"sit eu dolore id i\",\n      \"ad1_\": \"ad adipisicing\"\n    }\n  ],\n  \"extensions\": {\n    \"laborum391\": false,\n    \"proident9\": \"adipisicing mollit laboris aute\"\n  }\n}",
+                  "createdAt": "2026-07-28T01:53:16.000Z",
+                  "updatedAt": "2026-07-28T01:53:16.000Z",
+                  "uid": "35240-9f2d5c17-7779-4f73-a6d4-c20ae784515f"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:16.000Z",
+              "updatedAt": "2026-07-28T01:53:16.000Z",
+              "uid": "35240-18c1d3fc-7b0a-4523-9543-e9a16f71fbb2"
+            }
+          ],
+          "id": "f933a889-8a45-4218-9346-7e965e6c673d",
+          "createdAt": "2026-07-28T01:53:16.000Z",
+          "updatedAt": "2026-07-28T01:53:16.000Z",
+          "uid": "35240-f933a889-8a45-4218-9346-7e965e6c673d"
+        }
+      ],
+      "id": "f1ef0cab-16d8-4be9-8504-ac4038700e4c",
+      "createdAt": "2026-07-28T01:53:16.000Z",
+      "updatedAt": "2026-07-28T01:53:16.000Z",
+      "uid": "35240-f1ef0cab-16d8-4be9-8504-ac4038700e4c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}

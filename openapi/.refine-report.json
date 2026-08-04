@@ -1,0 +1,28 @@
+{
+  "provider": "hasura",
+  "sources": [
+    "hasura-graphql-api-openapi.yml",
+    "hasura-healthz-api-openapi.yml",
+    "hasura-metadata-api-openapi.yml",
+    "hasura-query-api-openapi.yml",
+    "hasura-source-health-api-openapi.yml",
+    "hasura-v1alpha1-api-openapi.yml",
+    "hasura-v1beta1-api-openapi.yml",
+    "hasura-version-api-openapi.yml"
+  ],
+  "outputs": [
+    "hasura-graphql-api-openapi.yml",
+    "hasura-healthz-api-openapi.yml",
+    "hasura-metadata-api-openapi.yml",
+    "hasura-query-api-openapi.yml",
+    "hasura-source-health-api-openapi.yml",
+    "hasura-v1alpha1-api-openapi.yml",
+    "hasura-v1beta1-api-openapi.yml",
+    "hasura-version-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

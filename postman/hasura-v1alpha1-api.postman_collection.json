@@ -1,0 +1,244 @@
+{
+  "info": {
+    "_postman_id": "40ceb712-f9b0-4e7e-9daa-af133d8b57bb",
+    "name": "Hasura Engine HTTP APIs Graphql V1alpha1 API",
+    "description": "Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its\nGraphQL endpoint. This specification documents the most commonly used\nendpoints: GraphQL queries/mutations/subscriptions, Relay GraphQL, the\nMetadata API, the Schema API, the PG Dump API, the Explain API, the\nHealth Check API, the Source Health Check API, the Config API, and the\nVersion API.\n\nAuthentication: When the engine is started with HASURA_GRAPHQL_ADMIN_SECRET,\nrequests must include the `x-hasura-admin-secret` header (or a valid JWT).\nRoles and session variables are passed via `x-hasura-role` and any\n`x-hasura-*` session headers.\n\n\nContact Support:\n Name: Hasura",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:53:14.000Z",
+    "updatedAt": "2026-07-28T01:53:15.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-40ceb712-f9b0-4e7e-9daa-af133d8b57bb"
+  },
+  "item": [
+    {
+      "name": "v1alpha1",
+      "item": [
+        {
+          "name": "pg_dump",
+          "item": [
+            {
+              "name": "Dump a Postgres source",
+              "id": "c63db572-f819-48a2-9d0c-1b5089cd462d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"opts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"clean_output\": \"<boolean>\",\n  \"source\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/v1alpha1/pg_dump",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1alpha1",
+                    "pg_dump"
+                  ]
+                },
+                "description": "Execute pg_dump against a configured Postgres source."
+              },
+              "response": [
+                {
+                  "id": "d7168185-605e-4c25-9cb1-0bf1da2122f6",
+                  "name": "SQL dump output (text/plain).",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/plain"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"opts\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"clean_output\": \"<boolean>\",\n  \"source\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/v1alpha1/pg_dump",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1alpha1",
+                        "pg_dump"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-07-28T01:53:15.000Z",
+                  "updatedAt": "2026-07-28T01:53:15.000Z",
+                  "uid": "35240-d7168185-605e-4c25-9cb1-0bf1da2122f6"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:15.000Z",
+              "updatedAt": "2026-07-28T01:53:15.000Z",
+              "uid": "35240-c63db572-f819-48a2-9d0c-1b5089cd462d"
+            }
+          ],
+          "id": "6552d73f-2c95-44e6-bcc0-f6a8c8ebddea",
+          "createdAt": "2026-07-28T01:53:15.000Z",
+          "updatedAt": "2026-07-28T01:53:15.000Z",
+          "uid": "35240-6552d73f-2c95-44e6-bcc0-f6a8c8ebddea"
+        },
+        {
+          "name": "config",
+          "item": [
+            {
+              "name": "Retrieve server configuration",
+              "id": "3dbe7141-9849-4bd3-b4b7-c87cad7dbff1",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/v1alpha1/config",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1alpha1",
+                    "config"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "52beb05d-7680-4efc-bc7a-7a5a9bbffa77",
+                  "name": "Server configuration.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-hasura-admin-secret",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/v1alpha1/config",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "v1alpha1",
+                        "config"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"sed_d\": \"dolor deserunt fugiat\",\n  \"Duisde\": 24292509.593058392\n}",
+                  "createdAt": "2026-07-28T01:53:15.000Z",
+                  "updatedAt": "2026-07-28T01:53:15.000Z",
+                  "uid": "35240-52beb05d-7680-4efc-bc7a-7a5a9bbffa77"
+                }
+              ],
+              "createdAt": "2026-07-28T01:53:15.000Z",
+              "updatedAt": "2026-07-28T01:53:15.000Z",
+              "uid": "35240-3dbe7141-9849-4bd3-b4b7-c87cad7dbff1"
+            }
+          ],
+          "id": "b6a0e129-2bd4-4973-801f-f4b08f68d7c1",
+          "createdAt": "2026-07-28T01:53:15.000Z",
+          "updatedAt": "2026-07-28T01:53:15.000Z",
+          "uid": "35240-b6a0e129-2bd4-4973-801f-f4b08f68d7c1"
+        }
+      ],
+      "id": "cc39f69e-fd67-4186-aa32-791b89c7bcc0",
+      "createdAt": "2026-07-28T01:53:15.000Z",
+      "updatedAt": "2026-07-28T01:53:15.000Z",
+      "uid": "35240-cc39f69e-fd67-4186-aa32-791b89c7bcc0"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-hasura-admin-secret",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://my-graphql-engine.example.com"
+    }
+  ]
+}
