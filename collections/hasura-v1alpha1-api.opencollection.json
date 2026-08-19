@@ -1,0 +1,52 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hasura Engine HTTP APIs Graphql V1alpha1 API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-hasura-admin-secret",
+      "value": "{{x-hasura-admin-secret}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "V1alpha1",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dump a Postgres source",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://my-graphql-engine.example.com/v1alpha1/pg_dump",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Execute pg_dump against a configured Postgres source."
+        },
+        {
+          "info": {
+            "name": "Retrieve server configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my-graphql-engine.example.com/v1alpha1/config"
+          },
+          "docs": "Retrieve server configuration"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

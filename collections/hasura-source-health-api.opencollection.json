@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hasura Engine HTTP APIs Graphql Source Health API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-hasura-admin-secret",
+      "value": "{{x-hasura-admin-secret}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Source Health",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check health of configured data sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my-graphql-engine.example.com/v1/source_health"
+          },
+          "docs": "Check health of configured data sources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

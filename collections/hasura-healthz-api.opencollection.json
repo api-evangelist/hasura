@@ -1,0 +1,37 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Hasura Engine HTTP APIs Graphql Healthz API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-hasura-admin-secret",
+      "value": "{{x-hasura-admin-secret}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Healthz",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Health check",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://my-graphql-engine.example.com/healthz"
+          },
+          "docs": "Returns 200 OK if the server is healthy."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
