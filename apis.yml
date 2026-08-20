@@ -6,6 +6,12 @@ apis:
   tags:
   - GraphQL
   - Mutations
+  - Query
+  - Real-Time
+  - Subscription
+  tags_raw:
+  - GraphQL
+  - Mutations
   - Queries
   - Realtime
   - Subscriptions
@@ -49,6 +55,12 @@ apis:
   - Data Delivery Network
   - DDN
   - GraphQL
+  - Real-Time
+  - Supergraph
+  tags_raw:
+  - Data Delivery Network
+  - DDN
+  - GraphQL
   - Realtime
   - Supergraph
   humanURL: https://hasura.io/docs/3.0/graphql-api/overview/
@@ -79,6 +91,10 @@ apis:
   tags:
   - Cloud
   - Management
+  - Project
+  tags_raw:
+  - Cloud
+  - Management
   - Projects
   humanURL: https://hasura.io/docs/2.0/api-reference/cloud-api-reference/
   properties:
@@ -92,6 +108,11 @@ apis:
 - aid: hasura:promptql-natural-language-api
   name: PromptQL Natural Language API
   tags:
+  - Artificial Intelligence
+  - LLM
+  - Natural-Language
+  - PromptQL
+  tags_raw:
   - AI
   - LLM
   - Natural Language
@@ -120,6 +141,8 @@ apis:
   description: The Graphql API from Hasura — 2 operation(s) for graphql.
   humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
   tags:
+  - GraphQL
+  tags_raw:
   - Graphql
   properties:
   - type: OpenAPI
