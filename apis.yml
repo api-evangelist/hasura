@@ -25,11 +25,13 @@ apis:
     type: Documentation
   - url: https://hasura.io/docs/2.0/getting-started/overview/
     type: GettingStarted
-  - url: https://raw.githubusercontent.com/api-evangelist/hasura/refs/heads/main/asyncapi/hasura-asyncapi.yml
+  - url: >-
+      https://raw.githubusercontent.com/api-evangelist/hasura/refs/heads/main/asyncapi/hasura-asyncapi.yml
     type: AsyncAPI
   - url: graphql/hasura-graphql.md
     type: GraphQL
-  description: The Hasura GraphQL Engine v2 provides instant realtime GraphQL APIs on your data with fine-grained
+  description: >-
+    The Hasura GraphQL Engine v2 provides instant realtime GraphQL APIs on your data with fine-grained
     access control. Supports GraphQL queries, mutations, and subscriptions at the /v1/graphql endpoint,
     along with RESTified GraphQL endpoints, Relay API, metadata API, schema API, config API, health check
     API, PG dump API, and explain API.
@@ -45,10 +47,10 @@ apis:
     type: Documentation
   - url: https://hasura.io/docs/2.0/api-reference/overview/
     type: APIReference
-  description: The Hasura Metadata API allows programmatic management of Hasura GraphQL Engine configuration.
-    All requests are POST requests to the /v1/metadata endpoint, supporting operations for managing data
-    sources, tables, relationships, permissions, remote schemas, actions, event triggers, and RESTified
-    endpoints.
+  description: >-
+    The Hasura Metadata API allows programmatic management of Hasura GraphQL Engine configuration. All
+    requests are POST requests to the /v1/metadata endpoint, supporting operations for managing data sources,
+    tables, relationships, permissions, remote schemas, actions, event triggers, and RESTified endpoints.
 - aid: hasura:hasura-ddn-graphql-api
   name: Hasura DDN GraphQL API
   tags:
@@ -81,11 +83,12 @@ apis:
     type: Installation
   - url: https://hasura.io/docs/3.0/reference/metadata-reference/graphql-config/
     type: APIReference
-  description: The Hasura Data Delivery Network (DDN) is a metadata-driven API platform that generates
-    instant GraphQL APIs on any data source. It provides queries, mutations, and subscriptions as root-level
-    fields, with support for global IDs, API versioning, Apollo Federation, filtering, sorting, aggregation,
-    and joins across multiple data connectors including PostgreSQL, MongoDB, ClickHouse, MySQL, Snowflake,
-    Elasticsearch, and SQL Server.
+  description: >-
+    The Hasura Data Delivery Network (DDN) is a metadata-driven API platform that generates instant GraphQL
+    APIs on any data source. It provides queries, mutations, and subscriptions as root-level fields, with
+    support for global IDs, API versioning, Apollo Federation, filtering, sorting, aggregation, and joins
+    across multiple data connectors including PostgreSQL, MongoDB, ClickHouse, MySQL, Snowflake, Elasticsearch,
+    and SQL Server.
 - aid: hasura:hasura-cloud-api
   name: Hasura Cloud API
   tags:
@@ -102,9 +105,10 @@ apis:
     type: Documentation
   - url: https://hasura.io/docs/2.0/hasura-cloud/projects/index/
     type: Documentation
-  description: The Hasura Cloud API provides a GraphQL endpoint at https://data.pro.hasura.io/v1/graphql
-    to programmatically create and manage Hasura Cloud projects, tenants, collaborators, and configurations.
-    Authentication uses Personal Access Tokens via the Authorization header.
+  description: >-
+    The Hasura Cloud API provides a GraphQL endpoint at https://data.pro.hasura.io/v1/graphql to programmatically
+    create and manage Hasura Cloud projects, tenants, collaborators, and configurations. Authentication
+    uses Personal Access Tokens via the Authorization header.
 - aid: hasura:promptql-natural-language-api
   name: PromptQL Natural Language API
   tags:
@@ -131,22 +135,11 @@ apis:
     type: PythonSDK
   - url: https://www.npmjs.com/package/@hasura/promptql
     type: NodeSDK
-  description: The PromptQL Natural Language API allows interaction with Hasura PromptQL to send natural
-    language messages and receive AI-powered responses with streaming support. It enables accurate AI
-    by continuously learning the unique context of your business data, composing tool calls and LLM tasks
-    for high explainability, accuracy, and repeatability. Available in v1 and v2 with Python and JavaScript
-    SDKs.
-- aid: hasura:hasura-graphql-api
-  name: Hasura Graphql API
-  description: The Graphql API from Hasura — 2 operation(s) for graphql.
-  humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
-  tags:
-  - GraphQL
-  tags_raw:
-  - Graphql
-  properties:
-  - type: OpenAPI
-    url: openapi/hasura-graphql-api-openapi.yml
+  description: >-
+    The PromptQL Natural Language API allows interaction with Hasura PromptQL to send natural language
+    messages and receive AI-powered responses with streaming support. It enables accurate AI by continuously
+    learning the unique context of your business data, composing tool calls and LLM tasks for high explainability,
+    accuracy, and repeatability. Available in v1 and v2 with Python and JavaScript SDKs.
 - aid: hasura:hasura-healthz-api
   name: Hasura Healthz API
   description: The Healthz API from Hasura — 1 operation(s) for healthz.
@@ -210,6 +203,15 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/hasura-version-api-openapi.yml
+- aid: hasura:hasura-graph-ql-api
+  name: Hasura Graph QL API
+  description: The Graph QL API from Hasura — 2 operation(s) for graph ql.
+  humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
+  tags:
+  - Graph QL
+  properties:
+  - type: OpenAPI
+    url: openapi/hasura-graph-ql-api-openapi.yml
 name: Hasura
 tags:
 - Data Access
