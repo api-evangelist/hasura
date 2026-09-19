@@ -208,6 +208,8 @@ apis:
   description: The Graph QL API from Hasura — 2 operation(s) for graph ql.
   humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
   tags:
+  - GraphQL
+  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
