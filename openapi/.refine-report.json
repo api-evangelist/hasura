@@ -1,14 +1,7 @@
 {
   "provider": "hasura",
   "sources": [
-    "hasura-graphql-api-openapi.yml",
-    "hasura-healthz-api-openapi.yml",
-    "hasura-metadata-api-openapi.yml",
-    "hasura-query-api-openapi.yml",
-    "hasura-source-health-api-openapi.yml",
-    "hasura-v1alpha1-api-openapi.yml",
-    "hasura-v1beta1-api-openapi.yml",
-    "hasura-version-api-openapi.yml"
+    "_original/hasura-openapi.yml"
   ],
   "outputs": [
     "hasura-graphql-api-openapi.yml",
@@ -20,9 +13,42 @@
     "hasura-v1beta1-api-openapi.yml",
     "hasura-version-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "hasura-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "hasura-openapi.yml: tagged paths POST /v1/graphql -> Graphql",
+    "hasura-openapi.yml: tagged paths POST /v1beta1/relay -> V1beta1",
+    "hasura-openapi.yml: tagged paths POST /v1/metadata -> Metadata",
+    "hasura-openapi.yml: tagged paths POST /v2/query -> Query",
+    "hasura-openapi.yml: tagged paths POST /v1alpha1/pg_dump -> V1alpha1",
+    "hasura-openapi.yml: tagged paths POST /v1/graphql/explain -> Graphql",
+    "hasura-openapi.yml: tagged paths GET /healthz -> Healthz",
+    "hasura-openapi.yml: tagged paths GET /v1/source_health -> Source Health",
+    "hasura-openapi.yml: tagged paths GET /v1alpha1/config -> V1alpha1",
+    "hasura-openapi.yml: tagged paths GET /v1/version -> Version",
+    "hasura-openapi.yml: declared missing tag: Graphql",
+    "hasura-openapi.yml: declared missing tag: Healthz",
+    "hasura-openapi.yml: declared missing tag: Query",
+    "hasura-openapi.yml: declared missing tag: Source Health",
+    "hasura-openapi.yml: declared missing tag: V1alpha1",
+    "hasura-openapi.yml: declared missing tag: V1beta1",
+    "hasura-openapi.yml: declared missing tag: Version",
+    "superseded outputs removed: hasura-graph-ql-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 13 total)"
+  ],
+  "skipped": [
+    "hasura-graph-ql-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-healthz-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-metadata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-query-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-source-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-v1alpha1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-v1beta1-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "hasura-version-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
