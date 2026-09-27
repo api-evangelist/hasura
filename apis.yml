@@ -35,22 +35,6 @@ apis:
     access control. Supports GraphQL queries, mutations, and subscriptions at the /v1/graphql endpoint,
     along with RESTified GraphQL endpoints, Relay API, metadata API, schema API, config API, health check
     API, PG dump API, and explain API.
-- aid: hasura:hasura-metadata-api
-  name: Hasura Metadata API
-  tags:
-  - Configuration
-  - Metadata
-  - Schema
-  humanURL: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
-  properties:
-  - url: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
-    type: Documentation
-  - url: https://hasura.io/docs/2.0/api-reference/overview/
-    type: APIReference
-  description: >-
-    The Hasura Metadata API allows programmatic management of Hasura GraphQL Engine configuration. All
-    requests are POST requests to the /v1/metadata endpoint, supporting operations for managing data sources,
-    tables, relationships, permissions, remote schemas, actions, event triggers, and RESTified endpoints.
 - aid: hasura:hasura-ddn-graphql-api
   name: Hasura DDN GraphQL API
   tags:
@@ -151,13 +135,22 @@ apis:
     url: openapi/hasura-healthz-api-openapi.yml
 - aid: hasura:hasura-metadata-api
   name: Hasura Metadata API
-  description: Hasura metadata management.
-  humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
+  description: >-
+    The Hasura Metadata API allows programmatic management of Hasura GraphQL Engine configuration. All
+    requests are POST requests to the /v1/metadata endpoint, supporting operations for managing data sources,
+    tables, relationships, permissions, remote schemas, actions, event triggers, and RESTified endpoints.
+  humanURL: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
   tags:
   - Metadata
+  - Configuration
+  - Schema
   properties:
   - type: OpenAPI
     url: openapi/hasura-metadata-api-openapi.yml
+  - url: https://hasura.io/docs/2.0/api-reference/metadata-api/index/
+    type: Documentation
+  - url: https://hasura.io/docs/2.0/api-reference/overview/
+    type: APIReference
 - aid: hasura:hasura-query-api
   name: Hasura Query API
   description: The Query API from Hasura — 1 operation(s) for query.
@@ -208,8 +201,6 @@ apis:
   description: The Graph QL API from Hasura — 2 operation(s) for graph ql.
   humanURL: https://hasura.io/docs/2.0/api-reference/graphql-api/index/
   tags:
-  - GraphQL
-  tags_raw:
   - Graph QL
   properties:
   - type: OpenAPI
@@ -218,19 +209,23 @@ name: Hasura
 tags:
 - Data Access
 - GraphQL
+- Real-Time
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - hasura/graphql-engine
   open_source: unknown
   commercial: true
   callable_host: false
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: freemium

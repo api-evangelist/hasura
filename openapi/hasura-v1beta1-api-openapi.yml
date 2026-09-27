@@ -38,6 +38,20 @@ paths:
       - V1beta1
 components:
   schemas:
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        errors:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        extensions:
+          type: object
+          additionalProperties: true
     GraphQLRequest:
       type: object
       required:
@@ -52,20 +66,6 @@ components:
         variables:
           type: object
           description: Variables for the GraphQL operation.
-          additionalProperties: true
-    GraphQLResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties: true
-        errors:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        extensions:
-          type: object
           additionalProperties: true
   securitySchemes:
     adminSecret:

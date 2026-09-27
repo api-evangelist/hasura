@@ -39,7 +39,7 @@
     "hasura-openapi.yml: declared missing tag: V1beta1",
     "hasura-openapi.yml: declared missing tag: Version",
     "superseded outputs removed: hasura-graph-ql-api-openapi.yml",
-    "apis.yml register: written (+1 apis, 13 total)"
+    "apis.yml register: written (+1 apis, 12 total)"
   ],
   "skipped": [
     "hasura-graph-ql-api-openapi.yml: previously refined output, superseded by openapi/_original/",

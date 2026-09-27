@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Hasura Engine HTTP Graphql API
+  title: Hasura Engine HTTP GraphQL API
   description: 'Hasura GraphQL Engine exposes a small set of HTTP APIs in addition to its
 
     GraphQL endpoint.'
@@ -80,6 +80,20 @@ paths:
       - Graph QL
 components:
   schemas:
+    GraphQLResponse:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties: true
+        errors:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+        extensions:
+          type: object
+          additionalProperties: true
     GraphQLRequest:
       type: object
       required:
@@ -94,20 +108,6 @@ components:
         variables:
           type: object
           description: Variables for the GraphQL operation.
-          additionalProperties: true
-    GraphQLResponse:
-      type: object
-      properties:
-        data:
-          type: object
-          additionalProperties: true
-        errors:
-          type: array
-          items:
-            type: object
-            additionalProperties: true
-        extensions:
-          type: object
           additionalProperties: true
   securitySchemes:
     adminSecret:
