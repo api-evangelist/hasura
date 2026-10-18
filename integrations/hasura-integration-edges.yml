@@ -8,6 +8,7 @@ checked:
 - https://github.com/cncf/landscape
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
+- zoom/integrations/zoom-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -111,6 +112,23 @@ edges:
     detected: '2026-10-15'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/7JqDwTbtQI-J8IHTaecfJg
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - PromptQL
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
 source:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
