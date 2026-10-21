@@ -99,3 +99,116 @@
     detected: '2026-10-19'
   status: not-a-workflow
   arazzo: null
+- slug: hasura-homebrew
+  label: Homebrew
+  partner: homebrew
+  partner_name: Homebrew
+  category: official CLI (Homebrew)
+  type: register
+  channel: package-registry
+  evidence: https://formulae.brew.sh/formula/hasura-cli
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Homebrew (public package index)
+    spec_file: null
+    packages:
+    - name: hasura-cli
+      kind: formula
+      version: 2.48.3
+      released: null
+      lapsed: true
+      page: https://formulae.brew.sh/formula/hasura-cli
+      cli: 'formula desc: Command-Line Interface for Hasura GraphQL Engine'
+      repo_leg: domain:hasura.io
+      publisher_leg: artifact-github-org:hasura
+      matched_by: domain
+    current: false
+    signal_note: 'the provider''s own command-line tool on a package manager: distribution, not an integration;
+      lapsed = no release in 24 months or deprecated / disabled by the manager'
+    detected_by: sweep-official-clis.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: hasura-scoop
+  label: Scoop
+  partner_name: Scoop
+  category: official CLI (Scoop)
+  type: register
+  channel: package-registry
+  evidence: https://github.com/ScoopInstaller/Main/blob/master/bucket/hasura-cli.json
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Scoop (public package index)
+    spec_file: null
+    packages:
+    - name: hasura-cli
+      kind: main
+      version: 2.50.3
+      released: null
+      lapsed: false
+      page: https://github.com/ScoopInstaller/Main/blob/master/bucket/hasura-cli.json
+      cli: 'scoop description: Hasura GraphQL Engine CLI'
+      repo_leg: domain:hasura.io
+      publisher_leg: artifact-github-org:hasura
+      matched_by: domain
+    current: true
+    signal_note: 'the provider''s own command-line tool on a package manager: distribution, not an integration;
+      lapsed = no release in 24 months or deprecated / disabled by the manager'
+    detected_by: sweep-official-clis.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: hasura-graphql-foundation-members
+  label: GraphQL Foundation (members)
+  partner_name: GraphQL Foundation (members)
+  category: GraphQL standards body membership
+  type: register
+  channel: standard-directory
+  evidence: https://graphql.org/foundation/members/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: GraphQL Foundation members (graphql.org/foundation/members; graphql.landscape2.io/data/full.json)
+    standard: GraphQL
+    spec_file: null
+    role: graphql-foundation-member
+    registered_name: Hasura, Inc.
+    register_id: graphql-foundation-member--general--hasura-inc-member
+    matched_domain: hasura.io
+    matched_by: domain
+    signal_note: 'participation only: membership level is partner_tier, never counted'
+    detected_by: sweep-graphql-ecosystem.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: hasura-graphql-org-tools-and-libraries
+  label: GraphQL.org tools and libraries
+  partner_name: GraphQL.org tools and libraries
+  category: GraphQL tooling listing
+  type: register
+  channel: standard-directory
+  evidence: https://graphql.org/community/tools-and-libraries/
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: GraphQL.org tools and libraries (graphql.org/community/tools-and-libraries; github.com/graphql/graphql.github.io
+      src/code)
+    standard: GraphQL
+    spec_file: null
+    role: graphql-org-listed-vendor
+    registered_name: Hasura
+    register_id: src/code/services/hasura.md
+    matched_domain: hasura.io
+    matched_by: domain
+    listed_products:
+    - product_type: services
+      entries:
+      - Hasura
+    signal_note: 'participation only: a reviewed listing on graphql.org, not a conformance certification; listed
+      products (one per section) are context, never counted'
+    detected_by: sweep-graphql-ecosystem.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null

@@ -3,19 +3,24 @@ method: searched
 checked:
 - datadog/integrations/datadog-integration-edges.yml
 - https://azuremarketplace.microsoft.com/
-- https://cdn.winget.microsoft.com/cache
 - https://focus.finops.org/data-generators/
-- https://formulae.brew.sh/api/cask.json
-- https://formulae.brew.sh/api/formula.json
-- https://github.com/ScoopInstaller/Extras
-- https://github.com/ScoopInstaller/Main
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
+- zoom/integrations/zoom-integration-edges.yml
+- https://cdn.winget.microsoft.com/cache
+- https://formulae.brew.sh/api/cask.json
+- https://formulae.brew.sh/api/formula.json
+- https://github.com/ScoopInstaller/Extras
+- https://github.com/ScoopInstaller/Main
 - https://pypi.org/pypi
 - https://registry.npmjs.org
-- zoom/integrations/zoom-integration-edges.yml
+- https://github.com/graphql-kit/graphql-apis
+- https://github.com/graphql/graphql.github.io/tree/source/src/code
+- https://graphql.landscape2.io/data/full.json
+- https://graphql.org/community/tools-and-libraries/
+- https://graphql.org/foundation/members/
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -196,6 +201,59 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: GraphQL Foundation (members)
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://graphql.org/foundation/members/
+  category: GraphQL standards body membership
+  partner_tier: general
+  contract_reference:
+    register: GraphQL Foundation members (graphql.org/foundation/members; graphql.landscape2.io/data/full.json)
+    standard: GraphQL
+    spec_file: null
+    role: graphql-foundation-member
+    registered_name: Hasura, Inc.
+    register_id: graphql-foundation-member--general--hasura-inc-member
+    matched_domain: hasura.io
+    matched_by: domain
+    signal_note: 'participation only: membership level is partner_tier, never counted'
+    detected_by: sweep-graphql-ecosystem.py
+    detected: '2026-10-21'
+  detected_by: sweep-graphql-ecosystem.py
+  first_seen: '2026-10-21'
+- partner_name: GraphQL.org tools and libraries
+  partner: null
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://graphql.org/community/tools-and-libraries/
+  category: GraphQL tooling listing
+  contract_reference:
+    register: GraphQL.org tools and libraries (graphql.org/community/tools-and-libraries; github.com/graphql/graphql.github.io
+      src/code)
+    standard: GraphQL
+    spec_file: null
+    role: graphql-org-listed-vendor
+    registered_name: Hasura
+    register_id: src/code/services/hasura.md
+    matched_domain: hasura.io
+    matched_by: domain
+    listed_products:
+    - product_type: services
+      entries:
+      - Hasura
+    signal_note: 'participation only: a reviewed listing on graphql.org, not a conformance certification; listed
+      products (one per section) are context, never counted'
+    detected_by: sweep-graphql-ecosystem.py
+    detected: '2026-10-21'
+  detected_by: sweep-graphql-ecosystem.py
+  first_seen: '2026-10-21'
 source:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
