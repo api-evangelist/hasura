@@ -21,6 +21,7 @@ checked:
 - https://graphql.landscape2.io/data/full.json
 - https://graphql.org/community/tools-and-libraries/
 - https://graphql.org/foundation/members/
+- vercel/integrations/vercel-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Microsoft Azure Marketplace
@@ -74,40 +75,6 @@ edges:
   - Verified creator
   detected_by: sweep-devtools.py
   detected: '2026-10-14'
-- partner_name: Datadog (own)
-  partner: datadog
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://github.com/DataDog/integrations-extras/tree/master/hasura_cloud
-  mirror_of: datadog/integrations/datadog-integration-edges.yml
-  apps:
-  - Hasura Cloud
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Cloud
-- partner_name: Zoom (own)
-  partner: zoom
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://marketplace.zoom.us/apps/7JqDwTbtQI-J8IHTaecfJg
-  mirror_of: zoom/integrations/zoom-integration-edges.yml
-  apps:
-  - PromptQL
-  listing_count: 1
-  detected: '2026-10-18'
-  detected_by: mirror-platform-listings.py
-  category: Zoom app
 - partner_name: CNCF (Cloud Native Landscape)
   partner: cncf
   partner_match: register
@@ -254,6 +221,58 @@ edges:
     detected: '2026-10-21'
   detected_by: sweep-graphql-ecosystem.py
   first_seen: '2026-10-21'
+- partner_name: Datadog (own)
+  partner: datadog
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://github.com/DataDog/integrations-extras/tree/master/hasura_cloud
+  mirror_of: datadog/integrations/datadog-integration-edges.yml
+  apps:
+  - Hasura Cloud
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Cloud
+- partner_name: Zoom (own)
+  partner: zoom
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://marketplace.zoom.us/apps/7JqDwTbtQI-J8IHTaecfJg
+  mirror_of: zoom/integrations/zoom-integration-edges.yml
+  apps:
+  - PromptQL
+  listing_count: 1
+  detected: '2026-10-18'
+  detected_by: mirror-platform-listings.py
+  category: Zoom app
+- partner_name: Vercel (own)
+  partner: vercel
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://vercel.com/marketplace/hasura
+  mirror_of: vercel/integrations/vercel-integration-edges.yml
+  apps:
+  - Hasura
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Storage
+  partner_tier: third-party
 source:
 - https://github.com/marketplace?type=actions
 - https://github.com/marketplace?type=apps
